@@ -7,3 +7,7 @@ export const getFactionsDataSelector = createSelector(
   getMainPage,
   (data) => data.factionsData
 );
+export const getSolarSystemNameSelector = createSelector(
+  getMainPage,
+  (data) => data.solarSystemName
+);

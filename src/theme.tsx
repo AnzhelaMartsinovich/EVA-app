@@ -7,6 +7,8 @@ export const theme = {
     darkBlue: '#020024',
     blue: '#1F547D',
     lightBlue: '#005EA6',
+    orange: '#FFC373',
+    darkOrange: '#c09563',
   },
 };
 

@@ -1,5 +1,8 @@
 import React, { FC, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { getSolarSystemName } from 'store/actions';
+import { getSolarSystemNameSelector } from 'store/selectors';
 import { FactionCardProps } from './FactionCard.interfaces';
 
 import {
@@ -10,9 +13,15 @@ import {
   FactionDescrTitle,
 } from './FactionCard.style';
 
-export const FactionCard: FC<FactionCardProps> = ({ name, descr }) => {
+export const FactionCard: FC<FactionCardProps> = ({ name, descr, id }) => {
+  const dispatch = useDispatch();
+  const solarSystemName = useSelector(getSolarSystemNameSelector);
   const [visible, setVisible] = useState(false);
-  const handleClick = () => setVisible(!visible);
+
+  const handleClick = () => {
+    setVisible(!visible);
+    dispatch(getSolarSystemName(id));
+  };
 
   return (
     <FactionContainer onClick={handleClick}>
@@ -20,6 +29,8 @@ export const FactionCard: FC<FactionCardProps> = ({ name, descr }) => {
       <FactionDescrContainer visible={visible}>
         <FactionDescrTitle>Description</FactionDescrTitle>
         <FactionDescrText>{descr}</FactionDescrText>
+        <FactionDescrTitle>Solar system name</FactionDescrTitle>
+        <FactionDescrText>{solarSystemName}</FactionDescrText>
       </FactionDescrContainer>
     </FactionContainer>
   );

@@ -16,6 +16,8 @@ export interface Faction {
 export interface MainPageState {
   factionsData: any;
   factionsError: string;
+  solarSystemName: string;
+  solarSystemNameError: string;
 }
 
 export interface FactionsData {
@@ -36,6 +38,18 @@ export interface RequestFactionsError {
   error: string;
 }
 
+export interface RecordSolarSystemNameToStore {
+  type: typeof actionTypes.RECORD_SOLAR_SYSTEM_NAME_TO_STORE;
+  solarSystemName: string;
+}
+
+export interface RequestSolarSystemNameError {
+  type: typeof actionTypes.REQUEST_SOLAR_SYSTEM_NAME_ERROR;
+  error: string;
+}
+
 export type MainPageActionsTypes =
   | RecordFactionsDataToStore
-  | RequestFactionsError;
+  | RequestFactionsError
+  | RecordSolarSystemNameToStore
+  | RequestSolarSystemNameError;

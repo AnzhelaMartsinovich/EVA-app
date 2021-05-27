@@ -4,6 +4,8 @@ import { MainPageActionsTypes, MainPageState } from './interfaces';
 export const mainPageInitialState: MainPageState = {
   factionsData: [],
   factionsError: '',
+  solarSystemName: '',
+  solarSystemNameError: '',
 };
 
 export const mainPageReducer = (
@@ -21,6 +23,18 @@ export const mainPageReducer = (
       return {
         ...state,
         factionsError: action.error,
+      };
+    }
+    case actionTypes.RECORD_SOLAR_SYSTEM_NAME_TO_STORE: {
+      return {
+        ...state,
+        solarSystemName: action.solarSystemName,
+      };
+    }
+    case actionTypes.REQUEST_SOLAR_SYSTEM_NAME_ERROR: {
+      return {
+        ...state,
+        solarSystemNameError: action.error,
       };
     }
     default: {

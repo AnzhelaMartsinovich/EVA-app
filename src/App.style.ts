@@ -18,6 +18,6 @@ export const AppStyled = styled.div`
   margin: 50px auto;
   padding: 20px;
   max-width: 1400px;
-  background-color: ${theme.colors.white + 'bf'};
+  background-color: ${theme.colors.orange + 'bf'};
   border-radius: 6px;
 `;

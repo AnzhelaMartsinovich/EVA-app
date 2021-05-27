@@ -28,18 +28,29 @@ export const FactionDescrContainer = styled.div<FactionDescrProps>`
   padding: 15px;
   position: absolute;
   z-index: 1;
-  width: 93%;
+  width: 100%;
   display: ${({ visible }) => (visible ? 'block' : 'none')};
-  background-color: ${theme.colors.lightBlue};
-  left: -4px;
+  background-color: ${theme.colors.darkOrange};
+  border: 1px solid black;
+  left: -14px;
+  top: 115%;
   border-radius: 4px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 45px;
+    top: -20px;
+    border: 20px solid transparent;
+    border-top: 20px solid ${theme.colors.blue};
+  }
 `;
 
 export const FactionDescrText = styled.div`
   font-size: 18px;
-  color: ${theme.colors.white};
+  color: ${theme.colors.darkBlue};
 `;
 
 export const FactionDescrTitle = styled(TitleH3)`
-  color: ${theme.colors.darkBlue};
+  color: ${theme.colors.blue};
 `;

@@ -9,6 +9,8 @@ export const initialState: AppState = {
   mainPage: {
     factionsData: [],
     factionsError: '',
+    solarSystemName: '',
+    solarSystemNameError: '',
   },
 };
 

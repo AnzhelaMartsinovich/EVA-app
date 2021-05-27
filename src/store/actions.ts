@@ -34,3 +34,32 @@ export const getFactionsDataRequest =
       dispatch(requestFactionsError(e));
     }
   };
+
+export const recordSolarSystemName = (
+  solarSystemName: string
+): interfaces.RecordSolarSystemNameToStore => ({
+  type: actionTypes.RECORD_SOLAR_SYSTEM_NAME_TO_STORE,
+  solarSystemName,
+});
+
+export const requestSolarSystemNameError = (
+  error: string
+): interfaces.RequestSolarSystemNameError => ({
+  type: actionTypes.REQUEST_SOLAR_SYSTEM_NAME_ERROR,
+  error,
+});
+
+export const getSolarSystemName =
+  (id: number) =>
+  async (
+    dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+  ): Promise<void> => {
+    try {
+      const res = await axios.get(
+        `https://esi.evetech.net/legacy/universe/systems/${id}`
+      );
+      dispatch(recordSolarSystemName(res.data.name));
+    } catch (e) {
+      dispatch(requestSolarSystemNameError(e));
+    }
+  };
