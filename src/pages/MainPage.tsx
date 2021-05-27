@@ -19,8 +19,8 @@ export const MainPage: FC = () => {
     <>
       <TitleH1>EVA-app</TitleH1>
       <FactionCards>
-        {factionsData.map((i: { name: string }) => (
-          <FactionCard name={i.name} />
+        {factionsData.map((faction: { name: string; description: string }) => (
+          <FactionCard name={faction.name} descr={faction.description} />
         ))}
       </FactionCards>
     </>

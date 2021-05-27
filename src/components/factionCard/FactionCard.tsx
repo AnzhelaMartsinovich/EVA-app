@@ -1,11 +1,26 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import { FactionCardProps } from './FactionCard.interfaces';
 
-import { FactionContainer, FactionName } from './FactionCard.style';
+import {
+  FactionContainer,
+  FactionName,
+  FactionDescrContainer,
+  FactionDescrText,
+  FactionDescrTitle,
+} from './FactionCard.style';
 
-export const FactionCard: FC<FactionCardProps> = ({ name }) => (
-  <FactionContainer>
-    <FactionName>{name}</FactionName>
-  </FactionContainer>
-);
+export const FactionCard: FC<FactionCardProps> = ({ name, descr }) => {
+  const [visible, setVisible] = useState(false);
+  const handleClick = () => setVisible(!visible);
+
+  return (
+    <FactionContainer onClick={handleClick}>
+      <FactionName>{name}</FactionName>
+      <FactionDescrContainer visible={visible}>
+        <FactionDescrTitle>Description</FactionDescrTitle>
+        <FactionDescrText>{descr}</FactionDescrText>
+      </FactionDescrContainer>
+    </FactionContainer>
+  );
+};

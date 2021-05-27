@@ -11,5 +11,11 @@ export const TitleH1 = styled.h1`
 export const TitleH2 = styled.h2`
   margin-bottom: 20px;
   letter-spacing: 0.12px;
+  font-size: 25px;
+`;
+
+export const TitleH3 = styled.h3`
+  margin-bottom: 10px;
+  letter-spacing: 0.12px;
   font-size: 20px;
 `;
