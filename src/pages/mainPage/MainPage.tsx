@@ -5,7 +5,7 @@ import { FactionCard } from 'components/factionCard/FactionCard';
 import { getFactionsDataRequest } from 'store/actions';
 import { getFactionsDataSelector } from 'store/selectors';
 
-import { FactionCards } from './MainPage.style';
+import { MainPageContainer, FactionCards } from './MainPage.style';
 import { TitleH1 } from 'components/common/Titles.style';
 
 export const MainPage: FC = () => {
@@ -16,7 +16,7 @@ export const MainPage: FC = () => {
   }, []);
 
   return (
-    <>
+    <MainPageContainer>
       <TitleH1>EVA-app</TitleH1>
       <FactionCards>
         {factionsData.map(
@@ -35,6 +35,6 @@ export const MainPage: FC = () => {
           )
         )}
       </FactionCards>
-    </>
+    </MainPageContainer>
   );
 };
