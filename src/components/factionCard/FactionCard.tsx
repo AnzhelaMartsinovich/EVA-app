@@ -50,7 +50,9 @@ export const FactionCard: FC<FactionCardProps> = ({
             <DescrBlock>{i.text}</DescrBlock>
           </>
         ))}
-        <DescrLink onClick={popupHandleClick}>{corporationData.name}</DescrLink>
+        <DescrLink title='More information...' onClick={popupHandleClick}>
+          {corporationData.name}
+        </DescrLink>
       </FactionDescrContainer>
     </FactionContainer>
   );

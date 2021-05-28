@@ -22,6 +22,8 @@ export interface MainPageState {
   corporationDataError: string;
   seoData: any;
   seoDataError: string;
+  race: any;
+  raceError: string;
 }
 
 export interface FactionsData {
@@ -72,6 +74,16 @@ export interface RequestSeoDataError {
   error: string;
 }
 
+export interface RecordRaceToStore {
+  type: typeof actionTypes.RECORD_RACE_TO_STORE;
+  race: string;
+}
+
+export interface RequestRaceError {
+  type: typeof actionTypes.REQUEST_RACE_ERROR;
+  error: string;
+}
+
 export type MainPageActionsTypes =
   | RecordFactionsDataToStore
   | RequestFactionsError
@@ -80,4 +92,6 @@ export type MainPageActionsTypes =
   | RecordCorporationDataToStore
   | RequestCorporationDataError
   | RecordSeoDataToStore
-  | RequestSeoDataError;
+  | RequestSeoDataError
+  | RecordRaceToStore
+  | RequestRaceError;

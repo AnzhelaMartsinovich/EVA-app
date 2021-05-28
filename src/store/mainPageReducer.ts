@@ -10,6 +10,8 @@ export const mainPageInitialState: MainPageState = {
   corporationDataError: '',
   seoData: null,
   seoDataError: '',
+  race: [],
+  raceError: '',
 };
 
 export const mainPageReducer = (
@@ -63,6 +65,18 @@ export const mainPageReducer = (
       return {
         ...state,
         seoDataError: action.error,
+      };
+    }
+    case actionTypes.RECORD_RACE_TO_STORE: {
+      return {
+        ...state,
+        race: action.race,
+      };
+    }
+    case actionTypes.REQUEST_RACE_ERROR: {
+      return {
+        ...state,
+        raceError: action.error,
       };
     }
     default: {

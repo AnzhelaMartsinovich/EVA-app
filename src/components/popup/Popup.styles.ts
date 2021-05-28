@@ -1,13 +1,10 @@
 import { styled, theme } from 'theme';
 
-import { ReactComponent as CrossIcon } from 'img/cross.svg';
-import { PopupContainerProps } from './PopupProps.interfaces';
+import { PopupBgProps } from './PopupProps.interfaces';
 
-import { TitleH2 } from 'components/common/Titles.style';
-import { DescrBlock } from 'components/common/DescrBlock.style';
 import { DescrLink } from 'components/common/DescrLink.style';
 
-export const PopupBg = styled.div<PopupContainerProps>`
+export const PopupBg = styled.div<PopupBgProps>`
   display: ${({ popupVisible }) => (popupVisible ? 'block' : 'none')};
   position: fixed;
   width: 100%;
@@ -18,48 +15,24 @@ export const PopupBg = styled.div<PopupContainerProps>`
   bottom: 0;
   background-color: ${theme.colors.black + 'e6'};
   z-index: 1;
-`;
 
-export const PopupContainer = styled.div`
-  position: relative;
-  max-width: 800px;
-  width: 40vw;
-  height: 450px;
-  margin: 15vh auto 0 auto;
-  padding: 40px;
-  border-radius: 6px;
-  background-color: ${theme.colors.black};
-  overflow-y: scroll;
-  border: 3px solid ${theme.colors.orange};
-
-  svg {
-    fill: ${theme.colors.orange};
-
-    &:hover {
-      fill: ${theme.colors.darkOrange};
-    }
+  .prev {
+    z-index: 2;
+    opacity: 1;
   }
-`;
 
-export const PopupIcon = styled(CrossIcon)`
-  padding: 5px;
-  float: right;
-  width: 30px;
-
-  &:hover {
-    cursor: pointer;
+  *:target ~ .prev {
+    opacity: 0;
   }
-`;
 
-export const PopupContent = styled.div``;
+  #prev:target ~ .prev {
+    opacity: 1;
+  }
 
-export const PopupTitle = styled(TitleH2)`
-  color: ${theme.colors.darkOrange};
-`;
-
-export const PopupDescr = styled(DescrBlock)`
-  color: ${theme.colors.white};
-  font-size: 20px;
+  #next:target ~ .next {
+    z-index: 3;
+    opacity: 1;
+  }
 `;
 
 export const PopupDescrLink = styled(DescrLink)`
@@ -68,5 +41,20 @@ export const PopupDescrLink = styled(DescrLink)`
 
   &:hover {
     color: ${theme.colors.orange};
+  }
+`;
+
+export const PopupNext = styled.a`
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+  border: solid ${theme.colors.orange};
+  border-width: 0 3px 3px 0;
+  padding: 12px;
+
+  &:hover {
+    border: solid ${theme.colors.darkOrange};
+    border-width: 0 3px 3px 0;
   }
 `;

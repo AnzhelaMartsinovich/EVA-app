@@ -14,7 +14,7 @@ export const getFactionDataArr = (descr: string, solarSystemName: string) => {
   ];
 };
 
-export const getPopupDataArr = (
+export const getCorporationDataArr = (
   name: string,
   member_count: number,
   description: string
@@ -34,6 +34,23 @@ export const getPopupDataArr = (
     },
     {
       title: 'Ceo',
+    },
+  ];
+};
+
+export const getSeoDataArr = (name: string, birthday: number, race: string) => {
+  return [
+    {
+      title: 'Name',
+      text: name,
+    },
+    {
+      title: 'Birthday',
+      text: birthday,
+    },
+    {
+      title: 'Race',
+      text: race,
     },
   ];
 };

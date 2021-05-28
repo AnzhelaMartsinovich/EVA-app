@@ -15,6 +15,8 @@ export const initialState: AppState = {
     corporationDataError: '',
     seoData: {},
     seoDataError: '',
+    race: [],
+    raceError: '',
   },
 };
 

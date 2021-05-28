@@ -19,3 +19,4 @@ export const getSeoDataSelector = createSelector(
   getMainPage,
   (data) => data.seoData
 );
+export const getRaceSelector = createSelector(getMainPage, (data) => data.race);
