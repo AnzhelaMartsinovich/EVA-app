@@ -18,8 +18,8 @@ export interface MainPageState {
   factionsError: string;
   solarSystemName: string;
   solarSystemNameError: string;
-  corporationName: string;
-  corporationNameError: string;
+  corporationData: any;
+  corporationDataError: string;
 }
 
 export interface FactionsData {
@@ -50,13 +50,13 @@ export interface RequestSolarSystemNameError {
   error: string;
 }
 
-export interface RecordCorporationNameToStore {
-  type: typeof actionTypes.RECORD_CORPORATION_NAME_TO_STORE;
-  corporationName: string;
+export interface RecordCorporationDataToStore {
+  type: typeof actionTypes.RECORD_CORPORATION_DATA_TO_STORE;
+  corporationData: any;
 }
 
-export interface RequestCorporationNameError {
-  type: typeof actionTypes.REQUEST_CORPORATION_NAME_ERROR;
+export interface RequestCorporationDataError {
+  type: typeof actionTypes.REQUEST_CORPORATION_DATA_ERROR;
   error: string;
 }
 
@@ -65,5 +65,5 @@ export type MainPageActionsTypes =
   | RequestFactionsError
   | RecordSolarSystemNameToStore
   | RequestSolarSystemNameError
-  | RecordCorporationNameToStore
-  | RequestCorporationNameError;
+  | RecordCorporationDataToStore
+  | RequestCorporationDataError;

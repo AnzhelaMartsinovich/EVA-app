@@ -1,23 +1,23 @@
 import React, { FC, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getSolarSystemName, getCorporationName } from 'store/actions';
+import { getSolarSystemName, getCorporationData } from 'store/actions';
 import {
   getSolarSystemNameSelector,
-  getCorporationNameSelector,
+  getCorporationDataSelector,
 } from 'store/selectors';
 import { FactionCardProps } from './FactionCard.interfaces';
-import { getFactionArr } from 'utils/commonUtils';
+import { getFactionDataArr } from 'utils/commonUtils';
 import { useOnClickOutside } from 'utils/customHook';
 
 import {
   FactionContainer,
   FactionName,
   FactionDescrContainer,
-  FactionDescrText,
   FactionDescrTitle,
   CorporationName,
 } from './FactionCard.style';
+import { DescrBlock } from '../common/DescrBlock.style';
 
 export const FactionCard: FC<FactionCardProps> = ({
   name,
@@ -30,14 +30,14 @@ export const FactionCard: FC<FactionCardProps> = ({
   const node = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const solarSystemName = useSelector(getSolarSystemNameSelector);
-  const corporationName = useSelector(getCorporationNameSelector);
-  const factionArr = getFactionArr(descr, solarSystemName);
+  const corporationData = useSelector(getCorporationDataSelector);
+  const factionArr = getFactionDataArr(descr, solarSystemName);
   useOnClickOutside(node, () => setVisible(false));
 
   const handleClick = () => {
     setVisible(true);
     dispatch(getSolarSystemName(solarSystemId));
-    dispatch(getCorporationName(corporationId));
+    dispatch(getCorporationData(corporationId));
   };
 
   return (
@@ -47,11 +47,11 @@ export const FactionCard: FC<FactionCardProps> = ({
         {factionArr.map((i: { title: string; text?: string }) => (
           <>
             <FactionDescrTitle>{i.title}</FactionDescrTitle>
-            <FactionDescrText>{i.text}</FactionDescrText>
+            <DescrBlock>{i.text}</DescrBlock>
           </>
         ))}
         <CorporationName onClick={popupHandleClick}>
-          {corporationName}
+          {corporationData.name}
         </CorporationName>
       </FactionDescrContainer>
     </FactionContainer>

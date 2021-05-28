@@ -46,15 +46,6 @@ export const FactionDescrContainer = styled.div<FactionDescrProps>`
   }
 `;
 
-export const FactionDescrText = styled.div`
-  font-size: 18px;
-  color: ${theme.colors.darkBlue};
-  display: -webkit-box;
-  -webkit-line-clamp: 9;
-  -webkit-box-orient: vertical;
-  overflow-y: hidden;
-`;
-
 export const FactionDescrTitle = styled(TitleH3)`
   color: ${theme.colors.blue};
 `;

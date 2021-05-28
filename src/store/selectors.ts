@@ -11,7 +11,7 @@ export const getSolarSystemNameSelector = createSelector(
   getMainPage,
   (data) => data.solarSystemName
 );
-export const getCorporationNameSelector = createSelector(
+export const getCorporationDataSelector = createSelector(
   getMainPage,
-  (data) => data.corporationName
+  (data) => data.corporationData
 );

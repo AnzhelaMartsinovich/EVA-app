@@ -1,8 +1,10 @@
 import { styled, theme } from 'theme';
 
 import { ReactComponent as CrossIcon } from 'img/cross.svg';
-
 import { PopupContainerProps } from './PopupProps.interfaces';
+
+import { TitleH2 } from 'components/common/Titles.style';
+import { DescrBlock } from 'components/common/DescrBlock.style';
 
 export const PopupBg = styled.div<PopupContainerProps>`
   display: ${({ popupVisible }) => (popupVisible ? 'block' : 'none')};
@@ -46,4 +48,15 @@ export const PopupIcon = styled(CrossIcon)`
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const PopupContent = styled.div``;
+
+export const PopupTitle = styled(TitleH2)`
+  color: ${theme.colors.darkOrange};
+`;
+
+export const PopupDescr = styled(DescrBlock)`
+  color: ${theme.colors.white};
+  font-size: 20px;
 `;
