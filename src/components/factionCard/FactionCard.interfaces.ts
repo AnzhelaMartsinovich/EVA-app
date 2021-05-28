@@ -3,6 +3,7 @@ export interface FactionCardProps {
   descr: string;
   solarSystemId: number;
   corporationId: number;
+  popupHandleClick: () => void;
 }
 
 export interface FactionDescrProps {
