@@ -1,7 +1,8 @@
 export interface FactionCardProps {
   name: string;
   descr: string;
-  id: number;
+  solarSystemId: number;
+  corporationId: number;
 }
 
 export interface FactionDescrProps {

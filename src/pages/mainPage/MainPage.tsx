@@ -23,12 +23,14 @@ export const MainPage: FC = () => {
           (faction: {
             faction_id: number;
             solar_system_id: number;
+            corporation_id: number;
             name: string;
             description: string;
           }) => (
             <FactionCard
               key={faction.faction_id}
-              id={faction.solar_system_id}
+              solarSystemId={faction.solar_system_id}
+              corporationId={faction.corporation_id}
               name={faction.name}
               descr={faction.description}
             />

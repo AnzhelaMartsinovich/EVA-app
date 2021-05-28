@@ -63,3 +63,32 @@ export const getSolarSystemName =
       dispatch(requestSolarSystemNameError(e));
     }
   };
+
+export const recordCorporationName = (
+  corporationName: string
+): interfaces.RecordCorporationNameToStore => ({
+  type: actionTypes.RECORD_CORPORATION_NAME_TO_STORE,
+  corporationName,
+});
+
+export const requestCorporationNameError = (
+  error: string
+): interfaces.RequestCorporationNameError => ({
+  type: actionTypes.REQUEST_CORPORATION_NAME_ERROR,
+  error,
+});
+
+export const getCorporationName =
+  (id: number) =>
+  async (
+    dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+  ): Promise<void> => {
+    try {
+      const res = await axios.get(
+        ` https://esi.evetech.net/legacy/corporations/${id}`
+      );
+      dispatch(recordCorporationName(res.data.name));
+    } catch (e) {
+      dispatch(requestCorporationNameError(e));
+    }
+  };

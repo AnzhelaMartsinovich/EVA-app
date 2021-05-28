@@ -11,6 +11,8 @@ export const initialState: AppState = {
     factionsError: '',
     solarSystemName: '',
     solarSystemNameError: '',
+    corporationName: '',
+    corporationNameError: '',
   },
 };
 

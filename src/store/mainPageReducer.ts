@@ -6,6 +6,8 @@ export const mainPageInitialState: MainPageState = {
   factionsError: '',
   solarSystemName: '',
   solarSystemNameError: '',
+  corporationName: '',
+  corporationNameError: '',
 };
 
 export const mainPageReducer = (
@@ -35,6 +37,18 @@ export const mainPageReducer = (
       return {
         ...state,
         solarSystemNameError: action.error,
+      };
+    }
+    case actionTypes.RECORD_CORPORATION_NAME_TO_STORE: {
+      return {
+        ...state,
+        corporationName: action.corporationName,
+      };
+    }
+    case actionTypes.REQUEST_CORPORATION_NAME_ERROR: {
+      return {
+        ...state,
+        corporationNameError: action.error,
       };
     }
     default: {
