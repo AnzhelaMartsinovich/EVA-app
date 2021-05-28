@@ -15,9 +15,9 @@ import {
   FactionName,
   FactionDescrContainer,
   FactionDescrTitle,
-  CorporationName,
 } from './FactionCard.style';
 import { DescrBlock } from '../common/DescrBlock.style';
+import { DescrLink } from 'components/common/DescrLink.style';
 
 export const FactionCard: FC<FactionCardProps> = ({
   name,
@@ -50,9 +50,7 @@ export const FactionCard: FC<FactionCardProps> = ({
             <DescrBlock>{i.text}</DescrBlock>
           </>
         ))}
-        <CorporationName onClick={popupHandleClick}>
-          {corporationData.name}
-        </CorporationName>
+        <DescrLink onClick={popupHandleClick}>{corporationData.name}</DescrLink>
       </FactionDescrContainer>
     </FactionContainer>
   );

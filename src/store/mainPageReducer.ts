@@ -8,6 +8,8 @@ export const mainPageInitialState: MainPageState = {
   solarSystemNameError: '',
   corporationData: null,
   corporationDataError: '',
+  seoData: null,
+  seoDataError: '',
 };
 
 export const mainPageReducer = (
@@ -49,6 +51,18 @@ export const mainPageReducer = (
       return {
         ...state,
         corporationDataError: action.error,
+      };
+    }
+    case actionTypes.RECORD_SEO_DATA_TO_STORE: {
+      return {
+        ...state,
+        seoData: action.seoData,
+      };
+    }
+    case actionTypes.REQUEST_SEO_DATA_ERROR: {
+      return {
+        ...state,
+        seoDataError: action.error,
       };
     }
     default: {

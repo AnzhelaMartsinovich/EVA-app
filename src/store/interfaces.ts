@@ -20,6 +20,8 @@ export interface MainPageState {
   solarSystemNameError: string;
   corporationData: any;
   corporationDataError: string;
+  seoData: any;
+  seoDataError: string;
 }
 
 export interface FactionsData {
@@ -60,10 +62,22 @@ export interface RequestCorporationDataError {
   error: string;
 }
 
+export interface RecordSeoDataToStore {
+  type: typeof actionTypes.RECORD_SEO_DATA_TO_STORE;
+  seoData: any;
+}
+
+export interface RequestSeoDataError {
+  type: typeof actionTypes.REQUEST_SEO_DATA_ERROR;
+  error: string;
+}
+
 export type MainPageActionsTypes =
   | RecordFactionsDataToStore
   | RequestFactionsError
   | RecordSolarSystemNameToStore
   | RequestSolarSystemNameError
   | RecordCorporationDataToStore
-  | RequestCorporationDataError;
+  | RequestCorporationDataError
+  | RecordSeoDataToStore
+  | RequestSeoDataError;

@@ -15,3 +15,7 @@ export const getCorporationDataSelector = createSelector(
   getMainPage,
   (data) => data.corporationData
 );
+export const getSeoDataSelector = createSelector(
+  getMainPage,
+  (data) => data.seoData
+);

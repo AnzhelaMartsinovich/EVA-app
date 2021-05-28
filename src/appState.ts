@@ -13,6 +13,8 @@ export const initialState: AppState = {
     solarSystemNameError: '',
     corporationData: {},
     corporationDataError: '',
+    seoData: {},
+    seoDataError: '',
   },
 };
 

@@ -32,5 +32,8 @@ export const getPopupDataArr = (
       title: 'Description',
       text: description,
     },
+    {
+      title: 'Ceo',
+    },
   ];
 };

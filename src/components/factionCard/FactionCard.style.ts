@@ -49,9 +49,3 @@ export const FactionDescrContainer = styled.div<FactionDescrProps>`
 export const FactionDescrTitle = styled(TitleH3)`
   color: ${theme.colors.blue};
 `;
-
-export const CorporationName = styled.a`
-  font-weight: bold;
-  font-size: 17px;
-  text-decoration: underline;
-`;

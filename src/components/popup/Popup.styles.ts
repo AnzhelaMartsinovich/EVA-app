@@ -5,6 +5,7 @@ import { PopupContainerProps } from './PopupProps.interfaces';
 
 import { TitleH2 } from 'components/common/Titles.style';
 import { DescrBlock } from 'components/common/DescrBlock.style';
+import { DescrLink } from 'components/common/DescrLink.style';
 
 export const PopupBg = styled.div<PopupContainerProps>`
   display: ${({ popupVisible }) => (popupVisible ? 'block' : 'none')};
@@ -59,4 +60,13 @@ export const PopupTitle = styled(TitleH2)`
 export const PopupDescr = styled(DescrBlock)`
   color: ${theme.colors.white};
   font-size: 20px;
+`;
+
+export const PopupDescrLink = styled(DescrLink)`
+  color: ${theme.colors.white};
+  font-size: 20px;
+
+  &:hover {
+    color: ${theme.colors.orange};
+  }
 `;
