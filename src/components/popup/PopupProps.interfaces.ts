@@ -11,4 +11,9 @@ export interface PopupContainerProps {
   arr: { title: string; text?: string | number }[];
   popupHandleClick: () => void;
   item: string;
+  nextPosition?: boolean;
+}
+
+export interface PopupStyleProps {
+  nextPosition?: boolean;
 }

@@ -8,17 +8,18 @@ import {
   PopupContent,
   PopupTitle,
   PopupDescr,
+  Popup,
 } from './PopupContainer.style';
 
 export const PopupContainerComponent: FC<PopupContainerProps> = ({
   arr,
   popupHandleClick,
   item,
+  nextPosition,
   children,
 }) => {
   return (
-    <>
-      <span id={item} />
+    <Popup nextPosition={nextPosition}>
       <PopupContainer className={item}>
         <PopupIcon onClick={popupHandleClick} />
         <PopupContent>
@@ -33,6 +34,6 @@ export const PopupContainerComponent: FC<PopupContainerProps> = ({
           {children}
         </PopupContent>
       </PopupContainer>
-    </>
+    </Popup>
   );
 };

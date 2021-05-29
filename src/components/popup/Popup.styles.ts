@@ -1,6 +1,7 @@
 import { styled, theme } from 'theme';
 
 import { PopupBgProps } from './PopupProps.interfaces';
+import { PopupContainerComponent } from './popupContainer/PopupContainer';
 
 import { DescrLink } from 'components/common/DescrLink.style';
 
@@ -15,24 +16,6 @@ export const PopupBg = styled.div<PopupBgProps>`
   bottom: 0;
   background-color: ${theme.colors.black + 'e6'};
   z-index: 1;
-
-  .prev {
-    z-index: 2;
-    opacity: 1;
-  }
-
-  *:target ~ .prev {
-    opacity: 0;
-  }
-
-  #prev:target ~ .prev {
-    opacity: 1;
-  }
-
-  #next:target ~ .next {
-    z-index: 3;
-    opacity: 1;
-  }
 `;
 
 export const PopupDescrLink = styled(DescrLink)`
@@ -41,6 +24,7 @@ export const PopupDescrLink = styled(DescrLink)`
 
   &:hover {
     color: ${theme.colors.orange};
+    cursor: pointer;
   }
 `;
 
@@ -58,3 +42,7 @@ export const PopupNext = styled.a`
     border-width: 0 3px 3px 0;
   }
 `;
+
+export const PopupContainerPrev = styled(PopupContainerComponent)``;
+
+export const PopupContainerNext = styled(PopupContainerComponent)``;

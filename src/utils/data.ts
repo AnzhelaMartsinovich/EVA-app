@@ -38,7 +38,7 @@ export const getCorporationDataArr = (
   ];
 };
 
-export const getSeoDataArr = (name: string, birthday: number, race: string) => {
+export const getSeoDataArr = (name: string, birthday: string, race: string) => {
   return [
     {
       title: 'Name',

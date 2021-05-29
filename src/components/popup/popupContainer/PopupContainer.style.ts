@@ -1,8 +1,17 @@
 import { styled, theme } from 'theme';
 
 import { ReactComponent as CrossIcon } from 'img/cross.svg';
+import { PopupStyleProps } from '../PopupProps.interfaces';
+
 import { TitleH2 } from 'components/common/Titles.style';
 import { DescrBlock } from 'components/common/DescrBlock.style';
+
+export const Popup = styled.div<PopupStyleProps>`
+  .next {
+    opacity: 1;
+    ${({ nextPosition }) => (nextPosition ? 'z-index: 3;' : 'z-index: 0;')};
+  }
+`;
 
 export const PopupContainer = styled.div`
   position: absolute;
@@ -21,6 +30,8 @@ export const PopupContainer = styled.div`
   right: 0;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  z-index: 2;
+  opacity: 1;
 
   svg {
     fill: ${theme.colors.orange};

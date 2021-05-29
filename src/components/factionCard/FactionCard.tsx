@@ -7,7 +7,7 @@ import {
   getCorporationDataSelector,
 } from 'store/selectors';
 import { FactionCardProps } from './FactionCard.interfaces';
-import { getFactionDataArr } from 'utils/commonUtils';
+import { getFactionDataArr } from 'utils/data';
 import { useOnClickOutside } from 'utils/customHook';
 
 import {
