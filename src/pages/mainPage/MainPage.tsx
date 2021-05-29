@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import { FactionCard } from 'components/factionCard/FactionCard';
 import { getFactionsDataRequest } from 'store/actions';
@@ -12,7 +11,6 @@ import { TitleH1 } from 'components/common/Titles.style';
 
 export const MainPage: FC = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const [popupVisible, setPopupVisible] = useState(false);
   const factionsData = useSelector(getFactionsDataSelector);
   useEffect(() => {
@@ -21,7 +19,6 @@ export const MainPage: FC = () => {
 
   const popupHandleClick = () => {
     setPopupVisible(!popupVisible);
-    history.push('/');
   };
 
   return (

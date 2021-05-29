@@ -6,18 +6,16 @@ import * as actionTypes from './actionTypes';
 import * as interfaces from './interfaces';
 import { AppState } from './interfaces';
 
+export const requestError = (error: string, type: string) => ({
+  type,
+  error,
+});
+
 export const recordFactionsDataToStore = (
   factionsData: interfaces.FactionsData
 ): interfaces.RecordFactionsDataToStore => ({
   type: actionTypes.RECORD_FACTIONS_DATA_TO_STORE,
   factionsData,
-});
-
-export const requestFactionsError = (
-  error: string
-): interfaces.RequestFactionsError => ({
-  type: actionTypes.REQUEST_FACTIONS_ERROR,
-  error,
 });
 
 export const getFactionsDataRequest =
@@ -31,7 +29,7 @@ export const getFactionsDataRequest =
       );
       dispatch(recordFactionsDataToStore(res.data));
     } catch (e) {
-      dispatch(requestFactionsError(e));
+      dispatch(requestError(e, actionTypes.REQUEST_FACTIONS_ERROR));
     }
   };
 
@@ -40,13 +38,6 @@ export const recordSolarSystemName = (
 ): interfaces.RecordSolarSystemNameToStore => ({
   type: actionTypes.RECORD_SOLAR_SYSTEM_NAME_TO_STORE,
   solarSystemName,
-});
-
-export const requestSolarSystemNameError = (
-  error: string
-): interfaces.RequestSolarSystemNameError => ({
-  type: actionTypes.REQUEST_SOLAR_SYSTEM_NAME_ERROR,
-  error,
 });
 
 export const getSolarSystemName =
@@ -60,7 +51,7 @@ export const getSolarSystemName =
       );
       dispatch(recordSolarSystemName(res.data.name));
     } catch (e) {
-      dispatch(requestSolarSystemNameError(e));
+      dispatch(requestError(e, actionTypes.REQUEST_SOLAR_SYSTEM_NAME_ERROR));
     }
   };
 
@@ -85,10 +76,52 @@ export const getCorporationData =
   ): Promise<void> => {
     try {
       const res = await axios.get(
-        ` https://esi.evetech.net/legacy/corporations/${id}`
+        `https://esi.evetech.net/legacy/corporations/${id}`
       );
       dispatch(recordCorporationData(res.data));
     } catch (e) {
-      dispatch(requestCorporationDataError(e));
+      dispatch(requestError(e, actionTypes.REQUEST_CORPORATION_DATA_ERROR));
+    }
+  };
+
+export const recordSeoData = (
+  seoData: any
+): interfaces.RecordSeoDataToStore => ({
+  type: actionTypes.RECORD_SEO_DATA_TO_STORE,
+  seoData,
+});
+
+export const getSeoData =
+  (id: number) =>
+  async (
+    dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+  ): Promise<void> => {
+    try {
+      const res = await axios.get(
+        `https://esi.evetech.net/legacy/characters/${id}`
+      );
+      dispatch(recordSeoData(res.data));
+    } catch (e) {
+      dispatch(requestError(e, actionTypes.REQUEST_SEO_DATA_ERROR));
+    }
+  };
+
+export const recordRace = (race: any): interfaces.RecordRaceToStore => ({
+  type: actionTypes.RECORD_RACE_TO_STORE,
+  race,
+});
+
+export const getRace =
+  () =>
+  async (
+    dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+  ): Promise<void> => {
+    try {
+      const res = await axios.get(
+        'https://esi.evetech.net/legacy/universe/races'
+      );
+      dispatch(recordRace(res.data));
+    } catch (e) {
+      dispatch(requestError(e, actionTypes.REQUEST_RACE_ERROR));
     }
   };

@@ -1,18 +1,8 @@
 import * as actionTypes from './actionTypes';
+import { MainPage } from 'store/interfaces';
 import { MainPageActionsTypes, MainPageState } from './interfaces';
 
-export const mainPageInitialState: MainPageState = {
-  factionsData: [],
-  factionsError: '',
-  solarSystemName: '',
-  solarSystemNameError: '',
-  corporationData: null,
-  corporationDataError: '',
-  seoData: null,
-  seoDataError: '',
-  race: [],
-  raceError: '',
-};
+export const mainPageInitialState: MainPageState = MainPage;
 
 export const mainPageReducer = (
   state = mainPageInitialState,

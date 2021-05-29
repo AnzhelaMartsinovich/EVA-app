@@ -40,6 +40,7 @@ export const PopupNext = styled.a`
   &:hover {
     border: solid ${theme.colors.darkOrange};
     border-width: 0 3px 3px 0;
+    cursor: pointer;
   }
 `;
 

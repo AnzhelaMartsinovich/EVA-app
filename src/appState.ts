@@ -4,20 +4,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { rootReducer } from './rootReducer';
 import { AppState } from './store/interfaces';
+import { MainPage } from 'store/interfaces';
 
 export const initialState: AppState = {
-  mainPage: {
-    factionsData: [],
-    factionsError: '',
-    solarSystemName: '',
-    solarSystemNameError: '',
-    corporationData: {},
-    corporationDataError: '',
-    seoData: {},
-    seoDataError: '',
-    race: [],
-    raceError: '',
-  },
+  mainPage: MainPage,
 };
 
 export const store = createStore(
