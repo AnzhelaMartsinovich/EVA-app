@@ -13,7 +13,7 @@ export const SearchPage: FC = () => (
   <SearchPageContainer>
     <SearchContent>
       <Dropdown />
-      <Input name='search-input' placeholder='Type here' />
+      <Input name='search' placeholder='Type here' />
       <SearchBtn type='submit'>Search</SearchBtn>
     </SearchContent>
   </SearchPageContainer>
