@@ -9,6 +9,8 @@ import { mainPageState } from '../mockData';
 
 describe('actions', () => {
   let fakeAxios: MockAdapter;
+  const fakeAxiosFunc = (endpoint: string, data: any) =>
+    fakeAxios.onGet(endpoint).reply(200, data);
   const requestError = jest.fn();
   const id = 1;
   beforeEach(() => {
@@ -17,9 +19,7 @@ describe('actions', () => {
   const dispatch: ThunkDispatch<any, any, any> = store.dispatch;
 
   it('should get factions data', async () => {
-    fakeAxios
-      .onGet(endpoints.FACTIONS_URL)
-      .reply(200, mainPageState.factionsData);
+    fakeAxiosFunc(endpoints.FACTIONS_URL, mainPageState.factionsData);
     const recordFactionsDataToStore = jest.fn();
 
     try {
@@ -43,9 +43,10 @@ describe('actions', () => {
   });
 
   it('should get solar system name', async () => {
-    fakeAxios
-      .onGet(`${endpoints.SYSTEMS_URL}${id}`)
-      .reply(200, mainPageState.solarSystemName);
+    fakeAxiosFunc(
+      `${endpoints.SYSTEMS_URL}${id}`,
+      mainPageState.solarSystemName
+    );
     const recordSolarSystemNameToStore = jest.fn();
 
     try {
@@ -71,9 +72,10 @@ describe('actions', () => {
   });
 
   it('should get corporation data', async () => {
-    fakeAxios
-      .onGet(`${endpoints.CORPORATIONS_URL}${id}`)
-      .reply(200, mainPageState.corporationData);
+    fakeAxiosFunc(
+      `${endpoints.CORPORATIONS_URL}${id}`,
+      mainPageState.corporationData
+    );
     const recordCorporationDataToStore = jest.fn();
 
     try {
@@ -99,9 +101,7 @@ describe('actions', () => {
   });
 
   it('should get seo data', async () => {
-    fakeAxios
-      .onGet(`${endpoints.CHARACTERS_URL}${id}`)
-      .reply(200, mainPageState.seoData);
+    fakeAxiosFunc(`${endpoints.CHARACTERS_URL}${id}`, mainPageState.seoData);
     const recordSeoDataToStore = jest.fn();
 
     try {
@@ -123,7 +123,7 @@ describe('actions', () => {
   });
 
   it('should get race', async () => {
-    fakeAxios.onGet(`${endpoints.RACES_URL}`).reply(200, mainPageState.race);
+    fakeAxiosFunc(`${endpoints.RACES_URL}`, mainPageState.race);
     const recordRaceToStore = jest.fn();
 
     try {
