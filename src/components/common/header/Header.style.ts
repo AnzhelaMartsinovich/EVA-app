@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
   margin: 0 auto 40px auto;
-  width: 250px;
+  width: max-content;
   padding: 10px;
   text-align: center;
-  color: wheat;
   background-color: ${theme.colors.darkBlue};
   border-radius: 6px;
 `;

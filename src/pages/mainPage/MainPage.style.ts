@@ -1,9 +1,8 @@
-import { styled, theme } from 'theme';
+import { styled } from 'theme';
+import { MainContainer } from 'utils/commonStyles.style';
 
 export const MainPageContainer = styled.div`
-  padding: 20px;
-  background-color: ${theme.colors.orange + 'bf'};
-  border-radius: 6px;
+  ${MainContainer};
 `;
 
 export const FactionCards = styled.div`
