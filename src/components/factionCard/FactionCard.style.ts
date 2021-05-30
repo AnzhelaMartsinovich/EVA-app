@@ -46,6 +46,8 @@ export const FactionDescrContainer = styled.div<FactionDescrProps>`
   }
 `;
 
+export const FactionDescrItem = styled.div``;
+
 export const FactionDescrTitle = styled(TitleH3)`
   color: ${theme.colors.blue};
 `;

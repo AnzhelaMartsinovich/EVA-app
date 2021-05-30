@@ -6,6 +6,7 @@ import {
   PopupContainer,
   PopupIcon,
   PopupContent,
+  PopupContentItem,
   PopupTitle,
   PopupDescr,
   Popup,
@@ -24,11 +25,19 @@ export const PopupContainerComponent: FC<PopupContainerProps> = ({
         <PopupIcon onClick={popupHandleClick} />
         <PopupContent>
           {arr.map(
-            ({ title, text }: { title: string; text?: string | number }) => (
-              <>
+            ({
+              title,
+              text,
+              id,
+            }: {
+              title: string;
+              text?: string | number;
+              id: number;
+            }) => (
+              <PopupContentItem key={id}>
                 <PopupTitle>{title}</PopupTitle>
                 <PopupDescr>{text}</PopupDescr>
-              </>
+              </PopupContentItem>
             )
           )}
           {children}

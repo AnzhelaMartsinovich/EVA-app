@@ -4,7 +4,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { rootReducer } from './rootReducer';
 import { AppState } from './store/interfaces';
-import { MainPage } from 'store/interfaces';
+import { MainPage } from 'utils/statesData';
 
 export const initialState: AppState = {
   mainPage: MainPage,

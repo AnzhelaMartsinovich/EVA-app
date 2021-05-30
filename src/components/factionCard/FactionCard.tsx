@@ -14,6 +14,7 @@ import {
   FactionContainer,
   FactionName,
   FactionDescrContainer,
+  FactionDescrItem,
   FactionDescrTitle,
 } from './FactionCard.style';
 import { DescrBlock } from '../common/DescrBlock.style';
@@ -44,11 +45,11 @@ export const FactionCard: FC<FactionCardProps> = ({
     <FactionContainer onClick={handleClick} ref={node}>
       <FactionName>{name}</FactionName>
       <FactionDescrContainer visible={visible}>
-        {factionArr.map((i: { title: string; text?: string }) => (
-          <>
+        {factionArr.map((i: { title: string; text?: string; id: number }) => (
+          <FactionDescrItem key={i.id}>
             <FactionDescrTitle>{i.title}</FactionDescrTitle>
             <DescrBlock>{i.text}</DescrBlock>
-          </>
+          </FactionDescrItem>
         ))}
         <DescrLink title='More information...' onClick={popupHandleClick}>
           {corporationData.name}

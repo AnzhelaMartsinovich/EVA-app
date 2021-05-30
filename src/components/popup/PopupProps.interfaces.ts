@@ -8,7 +8,7 @@ export interface PopupBgProps {
 }
 
 export interface PopupContainerProps {
-  arr: { title: string; text?: string | number }[];
+  arr: { title: string; text?: string | number; id: number }[];
   popupHandleClick: () => void;
   item: string;
   nextPosition?: boolean;

@@ -8,7 +8,7 @@ import {
   getSeoDataSelector,
 } from 'store/selectors';
 import { getCorporationDataArr, getSeoDataArr } from 'utils/data';
-import { getRace, getSeoData } from 'store/actions';
+import { getRaces, getSeoData } from 'store/actions';
 
 import {
   PopupBg,
@@ -24,21 +24,21 @@ export const Popup: FC<PopupProps> = ({ popupVisible, popupHandleClick }) => {
     getCorporationDataSelector
   );
   const seoData = useSelector(getSeoDataSelector);
-  const rase = useSelector(getRaceSelector);
+  const rases = useSelector(getRaceSelector);
   const corporationArr = getCorporationDataArr(name, member_count, description);
   const date = new Date(seoData?.birthday);
   const dateUS = date.toLocaleDateString('en-US');
-  const idRaceName = rase.findIndex(
+  const idRaceName = rases.findIndex(
     ({ race_id }: { race_id: number }) => race_id === seoData.race_id
   );
-  const seoArr = getSeoDataArr(seoData?.name, dateUS, rase[idRaceName]?.name);
+  const seoArr = getSeoDataArr(seoData?.name, dateUS, rases[idRaceName]?.name);
   useEffect(() => {
     dispatch(getSeoData(ceo_id));
-  }, [ceo_id]);
+  }, [ceo_id, dispatch]);
 
   useEffect(() => {
-    dispatch(getRace());
-  }, [seoData.race_id]);
+    dispatch(getRaces());
+  }, [seoData.race_id, dispatch]);
 
   const [nextPosition, setNextPosition] = useState(false);
   return (

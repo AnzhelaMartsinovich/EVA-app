@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import { MainPage } from 'store/interfaces';
+import { MainPage } from 'utils/statesData';
 import { MainPageActionsTypes, MainPageState } from './interfaces';
 
 export const mainPageInitialState: MainPageState = MainPage;

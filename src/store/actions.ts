@@ -5,11 +5,13 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import * as interfaces from './interfaces';
 import { AppState } from './interfaces';
-
-export const requestError = (error: string, type: string) => ({
-  type,
-  error,
-});
+import {
+  FACTIONS_URL,
+  SYSTEMS_URL,
+  CORPORATIONS_URL,
+  CHARACTERS_URL,
+  RACES_URL,
+} from 'endpoints';
 
 export const recordFactionsDataToStore = (
   factionsData: interfaces.FactionsData
@@ -18,18 +20,23 @@ export const recordFactionsDataToStore = (
   factionsData,
 });
 
+export const requestFactionsDataError = (
+  error: string
+): interfaces.RequestFactionsError => ({
+  type: actionTypes.REQUEST_FACTIONS_ERROR,
+  error,
+});
+
 export const getFactionsDataRequest =
   () =>
   async (
     dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
   ): Promise<void> => {
     try {
-      const res = await axios.get(
-        'https://esi.evetech.net/dev/universe/factions/'
-      );
+      const res = await axios.get(FACTIONS_URL);
       dispatch(recordFactionsDataToStore(res.data));
     } catch (e) {
-      dispatch(requestError(e, actionTypes.REQUEST_FACTIONS_ERROR));
+      dispatch(requestFactionsDataError(e));
     }
   };
 
@@ -40,18 +47,23 @@ export const recordSolarSystemName = (
   solarSystemName,
 });
 
+export const requestSolarSystemNameError = (
+  error: string
+): interfaces.RequestSolarSystemNameError => ({
+  type: actionTypes.REQUEST_SOLAR_SYSTEM_NAME_ERROR,
+  error,
+});
+
 export const getSolarSystemName =
   (id: number) =>
   async (
     dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
   ): Promise<void> => {
     try {
-      const res = await axios.get(
-        `https://esi.evetech.net/legacy/universe/systems/${id}`
-      );
+      const res = await axios.get(`${SYSTEMS_URL}${id}`);
       dispatch(recordSolarSystemName(res.data.name));
     } catch (e) {
-      dispatch(requestError(e, actionTypes.REQUEST_SOLAR_SYSTEM_NAME_ERROR));
+      dispatch(requestSolarSystemNameError(e));
     }
   };
 
@@ -75,12 +87,10 @@ export const getCorporationData =
     dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
   ): Promise<void> => {
     try {
-      const res = await axios.get(
-        `https://esi.evetech.net/legacy/corporations/${id}`
-      );
+      const res = await axios.get(`${CORPORATIONS_URL}${id}`);
       dispatch(recordCorporationData(res.data));
     } catch (e) {
-      dispatch(requestError(e, actionTypes.REQUEST_CORPORATION_DATA_ERROR));
+      dispatch(requestCorporationDataError(e));
     }
   };
 
@@ -91,18 +101,23 @@ export const recordSeoData = (
   seoData,
 });
 
+export const requestSeoDataError = (
+  error: string
+): interfaces.RequestSeoDataError => ({
+  type: actionTypes.REQUEST_SEO_DATA_ERROR,
+  error,
+});
+
 export const getSeoData =
   (id: number) =>
   async (
     dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
   ): Promise<void> => {
     try {
-      const res = await axios.get(
-        `https://esi.evetech.net/legacy/characters/${id}`
-      );
+      const res = await axios.get(`${CHARACTERS_URL}${id}`);
       dispatch(recordSeoData(res.data));
     } catch (e) {
-      dispatch(requestError(e, actionTypes.REQUEST_SEO_DATA_ERROR));
+      dispatch(requestSeoDataError(e));
     }
   };
 
@@ -111,17 +126,22 @@ export const recordRace = (race: any): interfaces.RecordRaceToStore => ({
   race,
 });
 
-export const getRace =
+export const requestRaceError = (
+  error: string
+): interfaces.RequestRaceError => ({
+  type: actionTypes.REQUEST_RACE_ERROR,
+  error,
+});
+
+export const getRaces =
   () =>
   async (
     dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
   ): Promise<void> => {
     try {
-      const res = await axios.get(
-        'https://esi.evetech.net/legacy/universe/races'
-      );
+      const res = await axios.get(RACES_URL);
       dispatch(recordRace(res.data));
     } catch (e) {
-      dispatch(requestError(e, actionTypes.REQUEST_RACE_ERROR));
+      dispatch(requestRaceError(e));
     }
   };

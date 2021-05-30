@@ -54,6 +54,8 @@ export const PopupIcon = styled(CrossIcon)`
 
 export const PopupContent = styled.div``;
 
+export const PopupContentItem = styled.div``;
+
 export const PopupTitle = styled(TitleH2)`
   color: ${theme.colors.darkOrange};
 `;

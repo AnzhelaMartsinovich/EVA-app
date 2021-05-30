@@ -1,17 +1,4 @@
 import * as actionTypes from './actionTypes';
-
-export const MainPage = {
-  factionsData: [],
-  factionsError: '',
-  solarSystemName: '',
-  solarSystemNameError: '',
-  corporationData: {},
-  corporationDataError: '',
-  seoData: {},
-  seoDataError: '',
-  race: [],
-  raceError: '',
-};
 export interface Faction {
   corporation_id: number;
   description: string;

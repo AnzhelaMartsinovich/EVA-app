@@ -15,7 +15,7 @@ export const MainPage: FC = () => {
   const factionsData = useSelector(getFactionsDataSelector);
   useEffect(() => {
     dispatch(getFactionsDataRequest());
-  }, []);
+  }, [dispatch]);
 
   const popupHandleClick = () => {
     setPopupVisible(!popupVisible);
